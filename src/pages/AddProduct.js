@@ -63,7 +63,7 @@ const AddProduct = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-8 mt-5 mt-lg-0">
-            <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+            <form className="php-email-form">
               <div className="row">
                 <div className="col-md-6 form-group">
                   <label>Prodcut Name : </label>

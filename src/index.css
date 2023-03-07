@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Theme {
+  z-index: 1234;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.light {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.dark {
+  background-color: rgba(255, 255, 255, 0.503) !important;
+}
+
+.dark a {
+  color: black !important;
+}
+
+.dark .get-started-btn {
+  color: black;
+}

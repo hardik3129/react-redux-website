@@ -9,7 +9,6 @@ const Home = () => {
   const Dispatch = useDispatch()
   const navigate = useNavigate()
 
-  console.log(productdata);
   const OnClickDelete = (id) => {
     Dispatch(deleteproduct(id))
   }
