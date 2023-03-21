@@ -1,3 +1,4 @@
 export const ADDPRODUCT = 'ADDPRODUCT'
 export const DELETEPRODUCT = 'DELETEPRODUCT'
 export const  EDITPRODUCT = 'EDITPRODUCT'
+export const SETUSER = 'SETUSER'

@@ -67,7 +67,7 @@ const AddProduct = () => {
               <div className="row">
                 <div className="col-md-6 form-group">
                   <label>Prodcut Name : </label>
-                  <input onChange={OnChangeName} type="text" value={name} name="name" className="form-control" placeholder="Your Product Name" />
+                  <input onChange={OnChangeName} type="text" value={name} name="product_name" className="form-control" placeholder="Your Product Name" />
                 </div>
                 <div className="col-md-6 form-group mt-3 mt-md-0">
                   <label>Prodcut Price : </label>

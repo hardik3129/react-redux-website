@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "reactstrap";
 import { deleteproduct } from "../redux/Action/product.action";
 import { useNavigate } from "react-router-dom";
+import { setUser } from "../redux/Action/userapi.action";
+
 
 const Home = () => {
+  
   const productdata = useSelector((data) => data.productreduser.product);
+  const data = useSelector((data) => data.userreduser.users || [])
+  const [Phone, setPhone] = useState({})
   const Dispatch = useDispatch()
   const navigate = useNavigate()
-
+  
   const OnClickDelete = (id) => {
     Dispatch(deleteproduct(id))
   }
@@ -16,7 +21,17 @@ const Home = () => {
   const OnClickEdit = (id) => {
     navigate(`/editproducts/${id}`)
   }
-
+  
+  useEffect(() => {
+    Dispatch(setUser())
+  },[])
+  
+  const onChangeNumber = (event) => {
+    if (event.target.value.match(/^\d{10}$/)) {
+      setPhone({ phone : event.target.value, AddClass : 'Green' })
+    }
+  }
+  
   return (
     <>
       <section id="hero" className="d-flex align-items-center justify-content-center">
@@ -74,11 +89,12 @@ const Home = () => {
         </div>
       </section>
       <section className="text-center container">
+        {console.log(Phone)}
+      <input onChange={onChangeNumber} type='number' name="phone" placeholder="Phone" className={`form-control ${Phone.AddClass}`} />
         <h1 className="fw-bold">Prodcut Data</h1>
         <Table dark>
           <thead>
             <tr>
-              <th>Id</th>
               <th>Product Name</th>
               <th>Product Quantity</th>
               <th>Product Price</th>
@@ -89,7 +105,6 @@ const Home = () => {
             {productdata?.map((i) => {
               return (
                 <tr key={Math.random()}>
-                  <th>{i?.id}</th>
                   <td>{i?.name}</td>
                   <td>{i?.quantity}</td>
                   <td>${i?.price}</td>
@@ -129,6 +144,40 @@ const Home = () => {
           </tbody>
         </Table>
       </section>
+      <section id="team" className="team">
+        <div className="container" data-aos="fade-up">
+          <div className="section-title">
+            <h2>Team</h2>
+            <p>Check our Team</p>
+          </div>
+          <div className="row">
+            {
+              data.map((i) => {
+                return (
+                  <div className="col-lg-3 col-md-6 d-flex align-items-stretch" key={Math.random()}>
+                    <div className="member" data-aos="fade-up" data-aos-delay={100}>
+                      <div className="member-img">
+                        <img src={i.image} className="img-fluid" alt />
+                        <div className="social">
+                          <a href><i className="bi bi-twitter" /></a>
+                          <a href><i className="bi bi-facebook" /></a>
+                          <a href><i className="bi bi-instagram" /></a>
+                          <a href><i className="bi bi-linkedin" /></a>
+                        </div>
+                      </div>
+                      <div className="member-info">
+                        <h4>{i.firstName} {i.lastName}</h4>
+                        <span>{i.domain}</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
+      </section>
+
     </>
   );
 };

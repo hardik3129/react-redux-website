@@ -16,7 +16,7 @@ code {
   z-index: 1234;
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
 }
 
 .light {
@@ -32,4 +32,8 @@ code {
 
 .dark .get-started-btn {
   color: black;
+}
+
+.Green {
+  border-color: green !important;
 }
