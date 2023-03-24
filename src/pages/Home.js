@@ -29,6 +29,8 @@ const Home = () => {
   const onChangeNumber = (event) => {
     if (event.target.value.match(/^\d{10}$/)) {
       setPhone({ phone : event.target.value, AddClass : 'Green' })
+    } else {
+      setPhone({ ...Phone, AddClass : 'Red' })
     }
   }
   
@@ -89,8 +91,9 @@ const Home = () => {
         </div>
       </section>
       <section className="text-center container">
-        {console.log(Phone)}
-      <input onChange={onChangeNumber} type='number' name="phone" placeholder="Phone" className={`form-control ${Phone.AddClass}`} />
+      <div className="d-flex phone-input">
+        <input onChange={onChangeNumber} type='number' name="phone" placeholder="Phone" className={`Green-input form-control ${Phone.AddClass}`} />
+      </div>
         <h1 className="fw-bold">Prodcut Data</h1>
         <Table dark>
           <thead>
@@ -157,7 +160,7 @@ const Home = () => {
                   <div className="col-lg-3 col-md-6 d-flex align-items-stretch" key={Math.random()}>
                     <div className="member" data-aos="fade-up" data-aos-delay={100}>
                       <div className="member-img">
-                        <img src={i.image} className="img-fluid" alt />
+                        <img src={i.image} className="img-fluid" alt='' />
                         <div className="social">
                           <a href><i className="bi bi-twitter" /></a>
                           <a href><i className="bi bi-facebook" /></a>
@@ -168,6 +171,7 @@ const Home = () => {
                       <div className="member-info">
                         <h4>{i.firstName} {i.lastName}</h4>
                         <span>{i.domain}</span>
+                        <div className="d-flex align-items-center">Weight : <p className="mb-0 ms-1">{i.weight}</p></div>
                       </div>
                     </div>
                   </div>

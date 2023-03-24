@@ -34,6 +34,35 @@ code {
   color: black;
 }
 
+.Green-input::before {
+  content: '\2611';
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2345;
+  color: green;
+} 
 .Green {
   border-color: green !important;
 }
+.phone-input {
+  position: relative;
+} 
+.phone-input .Green::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: green;
+} 
+.Red {
+  border-color: red !important;
+}
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+/* ===================================== PRODUCT-CARD =========================== */

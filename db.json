@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2
+    },
+    {
+      "name": "Hardik",
+      "id": 3
+    },
+    {
+      "name": "Rushabh",
+      "surname": "Sutariya",
+      "id": 4
+    },
+    {
+      "name": "Rushabh",
+      "surname": "Sutariya",
+      "id": 5
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "name": "morari",
+      "surname": "Dash",
+      "id": 2
+    },
+    {
+      "name": "RUSHABH",
+      "surname": "Sutariya",
+      "id": 4
+    },
+    {
+      "name": "Krishna",
+      "surname": "Chovatiya",
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
