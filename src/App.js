@@ -12,7 +12,7 @@ function App() {
   const [Theame, setTheame] = useState('light')
 
   const TheameChange = () => {
-    setTheame(Theame === 'light' ? 'dark a' : 'light')
+    setTheame(Theame === 'light' ? 'dark' : 'light')
   }
   
   return (

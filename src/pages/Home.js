@@ -5,7 +5,6 @@ import { deleteproduct } from "../redux/Action/product.action";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../redux/Action/userapi.action";
 
-
 const Home = () => {
   
   const productdata = useSelector((data) => data.productreduser.product);
@@ -147,7 +146,7 @@ const Home = () => {
           </tbody>
         </Table>
       </section>
-      <section id="team" className="team">
+      <section className="team">
         <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2>Team</h2>
