@@ -14,7 +14,7 @@ const productreduser = (state = initialstate, action) => {
         return {...state, product : state.product.filter((i) => i.id !== action.payload)}
     }
 
-    if (action.type === EDITPRODUCT) {
+    if (action.type === EDITPRODUCT) {  
         const editvalue = state.product.map((i) => {
             if (i.id === action.payload.id) {
                 i = action.payload
@@ -26,5 +26,6 @@ const productreduser = (state = initialstate, action) => {
     
     return state
 }
+
 
 export default productreduser

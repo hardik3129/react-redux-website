@@ -2,7 +2,7 @@ const initialstate = {
     users : []
 }
 
-const userreduser = (state = initialstate, action) => {
+const userapireduser = (state = initialstate, action) => {
 
     if (action.type === 'FETCH_DATA') {
         return { ...state, users : action.payload}
@@ -11,4 +11,4 @@ const userreduser = (state = initialstate, action) => {
     return state
 }
 
-export default userreduser
+export default userapireduser

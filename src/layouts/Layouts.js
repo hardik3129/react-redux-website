@@ -5,7 +5,9 @@ import Header from '../component/Header'
 const Layouts = (props) => {
   return (
     <>
-      <Header />{props.children}<Footer />
+      <Header />
+        <div className='my-5'>{props.children}</div>
+      <Footer />
     </>
   )
 }

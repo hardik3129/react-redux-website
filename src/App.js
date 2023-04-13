@@ -1,4 +1,3 @@
-import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Layouts from './layouts/Layouts';
 import Home from './pages/Home';
@@ -6,6 +5,8 @@ import AddProduct from './pages/AddProduct'
 import Context from './context/Context';
 import { useState } from 'react';
 import UseReduser from './pages/UseReduser';
+import Portfolio from './pages/Portfolio';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/addproducts' element={<Layouts><AddProduct /></Layouts>} />
           <Route path='/editproducts/:id' element={<Layouts><AddProduct /></Layouts>} />
           <Route path='/UseReduser' element={<Layouts><UseReduser /></Layouts>} />
+          <Route path='/portfolio' element={<Layouts><Portfolio /></Layouts>} />
         </Routes>
       </Context.Provider>
     </>

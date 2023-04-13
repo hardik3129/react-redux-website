@@ -44,12 +44,12 @@ const UseReduser = () => {
     },[])
 
   // ====================== USEMEMO ==================
+  // ====================== USECALLBACK ==================
     const memo = useCallback(() => {
       console.log("count");
       return state.count * 100
     },[state.count])
     
-    // ====================== USECALLBACK ==================
     const changeTime = () => {
       setTime(new Date().toLocaleTimeString())
     }
