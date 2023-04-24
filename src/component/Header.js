@@ -17,7 +17,7 @@ const Header = () => {
             <li><Link className="nav-link scrollto" to={'/addproducts'}>Add Prodcut</Link></li>
             <li><Link className="nav-link scrollto" to={'/UseReduser'}>UseReduser</Link></li>
             <li><Link className="nav-link scrollto" to={'/portfolio'}>Portfolio</Link></li>
-            <li><Link className="nav-link scrollto">Team</Link></li>
+            <li><Link className="nav-link scrollto" to={'/chart'}>Chart</Link></li>
             <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down" /></a>
               <ul>
                 <li><a href="#">Drop Down 1</a></li>

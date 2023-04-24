@@ -33,11 +33,19 @@ const Home = () => {
     }
   }
   
+
+  const onclickAddPhone = () => {
+      if (Phone.match(/^\d{10}$/)) {
+        console.log(Phone);
+      }
+  }
+  
   return (
     <>
       <section className="text-center container">
       <div className="d-flex phone-input">
         <input onChange={onChangeNumber} type='number' name="phone" placeholder="Phone" className={`Green-input form-control ${Phone.AddClass}`} />
+        <button className="btn btn-dark ms-2" onClick={onclickAddPhone}>Submit</button>
       </div>
         <h1 className="fw-bold">Prodcut Data</h1>
         <Table dark>
@@ -55,7 +63,7 @@ const Home = () => {
                 <tr key={Math.random()}>
                   <td>{i?.name}</td>
                   <td>{i?.quantity}</td>
-                  <td><i class="fa-regular fa-indian-rupee-sign"></i>{i?.price}</td>
+                  <td>{i?.price}</td>
                   <td className="d-flex justify-content-center">
                     <button className="btn text-light me-2 d-flex align-items-center justify-content-center" onClick={() => OnClickDelete(i.id)}>
                       <svg

@@ -7,6 +7,10 @@ import { useParams } from 'react-router-dom';
 const AddProduct = () => {
 
   const [data, setdata] = useState({})
+  const [name, setname] = useState('')
+  const [price, setprice] = useState()
+  const [quantity, setquantity] = useState()
+  
   const Dispatch = useDispatch()
   const Navigate = useNavigate()
   const {id} = useParams()
@@ -15,34 +19,37 @@ const AddProduct = () => {
   useEffect(() => {
     const val = Data.find((i) => i.id === getid)
   },[])
-  
-  const OnChangeEvent = (event) => {
-    let name = event.target.name
-    let value = event.target.value
-    console.log(name, value);
-    setdata({...data, [name] : value})
+
+  const OnChangeName = (name) => {
+    setname(name)
+  }
+  const OnChangePrice = (price) => {
+    setprice(price)
+  }
+  const OnChangeQuantity = (quantity) => {
+    setquantity(quantity)
   }
   
   const OnSubmitHandler = () => {
-    // if (getid) {
-    //   const obj = {
-    //     id : getid,
-    //     name : name,
-    //     price : price,
-    //     quantity : quantity
-    //   }
-    //   Dispatch(editproducts(obj))
-    // } 
-    // else {
-    //   const obj = {
-    //     id : new Date().getTime(),
-    //     name : name,
-    //     price : price,
-    //     quantity : quantity
-    //   }
-    //   Dispatch(productaction(obj))
-    // }
-    // Navigate('/')
+    if (getid) {
+      const obj = {
+        id : getid,
+        name : name,
+        price : price,
+        quantity : quantity
+      }
+      Dispatch(editproducts(obj))
+    } 
+    else {
+      const obj = {
+        id : new Date().getTime(),
+        name : name,
+        price : price,
+        quantity : quantity
+      }
+      Dispatch(productaction(obj))
+    }
+    Navigate('/')
   }
 
   
@@ -58,16 +65,17 @@ const AddProduct = () => {
               <div className="row">
                 <div className="col-md-6 form-group">
                   <label>Prodcut Name : </label>
-                  <input onChange={(event) => OnChangeEvent(event)} type="text" name="product_name" className="form-control" placeholder="Your Product Name" />
+                  <input onChange={(event) => OnChangeName(event.target.value)} type="text" name="product_name" className="form-control" placeholder="Your Product Name" />
                 </div>
                 <div className="col-md-6 form-group mt-3 mt-md-0">
                   <label>Prodcut Price : </label>
-                  <input onChange={(event) => OnChangeEvent(event)} type="number" className="form-control" name="price" placeholder="Price" />
+                  <input onChange={(event) => OnChangePrice(event.target.value)} type="number" className="form-control" name="price" placeholder="Price" />
                 </div>
               </div>
               <div className="form-group mt-3">
                 <label>Prodcut Quantity : </label>
-                <input onChange={(event) => OnChangeEvent(event)} type="number" className="form-control" name="quantity" placeholder="Quantity" />
+                <input onChange={(event) => OnChangeQuantity(event.target.value
+                  )} type="number" className="form-control" name="quantity" placeholder="Quantity" />
               </div>
               <div className="my-3">
                 <div className="loading">Loading</div>
