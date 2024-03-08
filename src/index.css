@@ -60,3 +60,16 @@ code {
 }
 
 /* ===================================== PRODUCT-CARD =========================== */
+.product-tumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 50px;
+  background: #f0f0f0;
+}
+
+.product-tumb img {
+  max-width: 100%;
+  max-height: 100%;
+}

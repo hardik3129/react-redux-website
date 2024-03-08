@@ -3,12 +3,11 @@ import Layouts from './layouts/Layouts';
 import Home from './pages/Home';
 import AddProduct from './pages/AddProduct'
 import Context from './context/Context';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import UseReduser from './pages/UseReduser';
 import Portfolio from './pages/Portfolio';
 import { Route, Routes } from 'react-router-dom';
-import Chart from './pages/Chart';
-import { type } from '@testing-library/user-event/dist/type';
+import Contact from './pages/Contact';
 
 function App() {
 
@@ -30,7 +29,7 @@ function App() {
           <Route path='/editproducts/:id' element={<Layouts><AddProduct /></Layouts>} />
           <Route path='/UseReduser' element={<Layouts><UseReduser /></Layouts>} />
           <Route path='/portfolio' element={<Layouts><Portfolio /></Layouts>} />
-          <Route path='/chart' element={<Layouts><Chart /></Layouts>} />
+          <Route path='/contact' element={<Layouts><Contact /></Layouts>} />
         </Routes>
       </Context.Provider>
  

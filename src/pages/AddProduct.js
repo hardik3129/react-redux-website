@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 const AddProduct = () => {
 
-  const [data, setdata] = useState({})
+  const [editData, setEditData] = useState({})
   const [name, setname] = useState('')
   const [price, setprice] = useState()
   const [quantity, setquantity] = useState()
@@ -17,7 +17,11 @@ const AddProduct = () => {
   const getid = Number(id)
   const Data = useSelector((getdata) => getdata.productreduser.product)
   useEffect(() => {
-    const val = Data.find((i) => i.id === getid)
+    const getData = Data.find((i) => i.id === getid)
+    setEditData(getData)
+    setname(getData?.name)
+    setquantity(getData?.quantity)
+    setprice(getData?.price)
   },[])
 
   const OnChangeName = (name) => {
@@ -65,16 +69,16 @@ const AddProduct = () => {
               <div className="row">
                 <div className="col-md-6 form-group">
                   <label>Prodcut Name : </label>
-                  <input onChange={(event) => OnChangeName(event.target.value)} type="text" name="product_name" className="form-control" placeholder="Your Product Name" />
+                  <input defaultValue={editData?.name} onChange={(event) => OnChangeName(event.target.value)} type="text" name="product_name" className="form-control" placeholder="Your Product Name" />
                 </div>
                 <div className="col-md-6 form-group mt-3 mt-md-0">
                   <label>Prodcut Price : </label>
-                  <input onChange={(event) => OnChangePrice(event.target.value)} type="number" className="form-control" name="price" placeholder="Price" />
+                  <input defaultValue={editData?.price} onChange={(event) => OnChangePrice(event.target.value)} type="number" className="form-control" name="price" placeholder="Price" />
                 </div>
               </div>
               <div className="form-group mt-3">
                 <label>Prodcut Quantity : </label>
-                <input onChange={(event) => OnChangeQuantity(event.target.value
+                <input defaultValue={editData?.quantity} onChange={(event) => OnChangeQuantity(event.target.value
                   )} type="number" className="form-control" name="quantity" placeholder="Quantity" />
               </div>
               <div className="my-3">

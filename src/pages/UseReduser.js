@@ -1,22 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
+import Timer from '../component/Timer'
 
 const UseReduser = () => {
-
-  const [Time, setTime] = useState(new Date().toLocaleTimeString())
   const ProductData = useSelector((data) => data.productSagaReducer.ProductData)
-  
-  useEffect(() => {
-      setInterval(() => {
-        setTime(new Date().toLocaleTimeString())
-      }, 1000);
-  },[Time])
     
   return (
     <>
-      <section className='container mt-5'>
-        {Time}
-      </section>
+      <Timer />
       <section id="team" className="team">
         <div className="container" data-aos="fade-up">
           <div className="section-title">
@@ -27,9 +18,11 @@ const UseReduser = () => {
             {ProductData.map((i) => {
                 return (
                   <div className="col-lg-3 col-md-6 d-flex align-items-stretch" key={Math.random()}>
-                    <div className="member" data-aos="fade-up" data-aos-delay={100}>
+                    <div className="member" data-aos="fade-up" data-aos-delay={100}>   {/* data-aos="fade-up" data-aos-delay={100} */}
                       <div className="member-img">
-                        <img src={i.thumbnail} className="img-fluid" alt='' />
+                        <div className='product-tumb'>
+                          <img src={i.thumbnail} className="img-fluid" alt='' />
+                        </div>
                         <div className="social">
                           <a href><i className="bi bi-twitter" /></a>
                           <a href><i className="bi bi-facebook" /></a>

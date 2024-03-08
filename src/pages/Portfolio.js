@@ -11,6 +11,54 @@ const Portfolio = () => {
     const LastData = page * perpage
     const FirstData = LastData - perpage
     
+    const portfolioGallery = [
+      {
+        image : 'assets/img/portfolio/portfolio-1.jpg',
+        type : 'App',
+        name : 'App 1',
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-2.jpg',
+        type : 'Web',
+        name : 'Web 3'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-3.jpg',
+        type : 'App',
+        name : 'App 2'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-4.jpg',
+        type : 'Card',
+        name : 'Card 2'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-5.jpg',
+        type : 'Web',
+        name : 'Web 2'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-6.jpg',
+        type : 'App',
+        name : 'App 3'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-7.jpg',
+        type : 'Card',
+        name : 'Card 1'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-8.jpg',
+        type : 'Card',
+        name : 'Card 3'
+      },
+      {
+        image : 'assets/img/portfolio/portfolio-9.jpg',
+        type : 'Web',
+        name : 'Web 3'
+      }
+    ]
+    
     useEffect(() => {
       setPaginationData(ProductData.slice(FirstData, LastData))
     },[page])
@@ -22,6 +70,7 @@ const Portfolio = () => {
     
   return (
     <>
+    {/* ==================================== PORTFOLIO ==================================== */}
       <section id="portfolio" className="portfolio">
         <div className="container" data-aos="fade-up">
           <div className="section-title">
@@ -32,133 +81,37 @@ const Portfolio = () => {
             <div className="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
                 <li data-filter="*" className="filter-active">All</li>
-                <li data-filter=".filter-app">App</li>
-                <li data-filter=".filter-card">Card</li>
-                <li data-filter=".filter-web">Web</li>
+                <li data-filter=".filter-App">App</li>
+                <li data-filter=".filter-Card">Card</li>
+                <li data-filter=".filter-Web">Web</li>
               </ul>
             </div>
           </div>
           <div className="row portfolio-container" data-aos="fade-up" data-aos-delay={200}>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-1.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>App</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="App 1"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
+            {
+              portfolioGallery.map((i) => {
+                return (
+                  <div className={`col-lg-4 col-md-6 portfolio-item filter-${i.type}`}>
+                    <div className="portfolio-wrap">
+                      <img src={i.image} className="img-fluid" alt />
+                      <div className="portfolio-info">
+                        <h4>{i.name}</h4>
+                        <p>{i.type}</p>
+                        <div className="portfolio-links">
+                          <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title={i.name}><i className="bx bx-plus" /></a>
+                          <a href="#" title="More Details"><i className="bx bx-link" /></a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-2.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>Web 3</h4>
-                  <p>Web</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="Web 3"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-3.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>App</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="App 2"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-4.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>Card 2</h4>
-                  <p>Card</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="Card 2"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-5.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>Web 2</h4>
-                  <p>Web</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="Web 2"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-6.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>App 3</h4>
-                  <p>App</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="App 3"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-7.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>Card 1</h4>
-                  <p>Card</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="Card 1"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-8.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>Card 3</h4>
-                  <p>Card</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="Card 3"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div className="portfolio-wrap">
-                <img src="assets/img/portfolio/portfolio-9.jpg" className="img-fluid" alt />
-                <div className="portfolio-info">
-                  <h4>Web 3</h4>
-                  <p>Web</p>
-                  <div className="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" className="portfolio-lightbox" title="Web 3"><i className="bx bx-plus" /></a>
-                    <a href="portfolio-details.html" title="More Details"><i className="bx bx-link" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                )
+              })
+            }
           </div>
         </div>
       </section>
+
+      {/* ============================= PAGINATION ============================= */}
       <div className='d-flex justify-content-center'>
         {
           Array.from(Array(Math.ceil(ProductData.length / perpage)), (_, i) => {
@@ -183,7 +136,9 @@ const Portfolio = () => {
                   <div className="col-lg-3 col-md-6 d-flex align-items-stretch" key={Math.random()}>
                     <div className="member">
                       <div className="member-img">
-                        <img src={i.thumbnail} className="img-fluid" alt='' />
+                        <div className='product-tumb'>
+                          <img src={i.thumbnail} className="img-fluid" alt='' />
+                        </div>
                         <div className="social">
                           <a href><i className="bi bi-twitter" /></a>
                           <a href><i className="bi bi-facebook" /></a>

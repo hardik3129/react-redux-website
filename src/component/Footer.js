@@ -2,6 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
+    <>
       <footer id="footer">
         <div className="footer-top">
             <div className="container">
@@ -63,6 +64,8 @@ const Footer = () => {
             </div>
         </div>
     </footer>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><i class="bi bi-arrow-up-short"></i></a>
+    </>
   )
 }
 
